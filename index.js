@@ -146,6 +146,65 @@ function addInternPrompts() {
 
 //Takes input of entire employees array and creates the html page
 function generatePage(array) {
+  //String that each card's html text will be added to
+  let cards = ``;
+  for (const employee of array) {
+    const currentRole = employee.getRole();
+    if (currentRole === "Manager") {
+      cards += `<div class="card m-3 shadow" style="width: 18rem">
+        
+    <div class="card-header text-white bg-info">
+      <h3>${employee.getName()}</h3>
+      <div class = "d-flex align-items-center">
+        <i class="fa-solid fa-briefcase"></i>
+        <!-- <i class="fa-solid fa-display-code"></i> -->
+        <!-- <i class="fa-solid fa-graduation-cap"></i> -->
+        <h4 class = "m-1">${currentRole}</h4>
+      </div>
+      
+    </div>
+    <ul class="list-group list-group-flush m-3">
+      <li class="list-group-item">ID Number: ${employee.getId()}</li>
+      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+      <li class="list-group-item">Office Number: ${employee.getOfficeNumber()}</li>
+    </ul>
+  </div>`;
+    } else if (currentRole === "Engineer") {
+      cards += `<div class="card m-3 shadow" style="width: 18rem">
+        
+    <div class="card-header text-white bg-info">
+      <h3>${employee.getName()}</h3>
+      <div class = "d-flex align-items-center">
+      <i class="fa-solid fa-desktop"></i>
+        <h4 class = "m-1">${currentRole}</h4>
+      </div>
+      
+    </div>
+    <ul class="list-group list-group-flush m-3">
+      <li class="list-group-item">ID Number: ${employee.getId()}</li>
+      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+      <li class="list-group-item">Github: ${employee.getGithub()}</li>
+    </ul>
+  </div>`;
+    } else {
+      cards += `<div class="card m-3 shadow" style="width: 18rem">
+        
+    <div class="card-header text-white bg-info">
+      <h3>${employee.getName()}</h3>
+      <div class = "d-flex align-items-center">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h4 class = "m-1">${currentRole}</h4>
+      </div>
+      
+    </div>
+    <ul class="list-group list-group-flush m-3">
+      <li class="list-group-item">ID Number: ${employee.getId()}</li>
+      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+      <li class="list-group-item">School: ${employee.getSchool()}</li>
+    </ul>
+  </div>`;
+    }
+  }
   console.log(array);
   const file =
     //map through array and for each type of employee have if statements (for the extra question, icon and placement?)
@@ -163,6 +222,9 @@ function generatePage(array) {
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&family=Quicksand&family=Roboto+Condensed&family=Roboto:wght@100&display=swap" rel="stylesheet"
     <script src="https://kit.fontawesome.com/0f98f481f3.js" crossorigin="anonymous"></script>
     <title>Staff Directory</title>
   </head>
@@ -171,28 +233,8 @@ function generatePage(array) {
       <h1>My Team</h1>
     </header>
     <main class="d-flex justify-content-center">
-        <!-- example card -->
-      <div class="card m-3 shadow" style="width: 18rem">
-        <!-- title with name and role -->
-        <div class="card-header text-white bg-info">
-          <h3>Name</h3>
-          <div class = "d-flex align-items-center">
-            <i class="fa-solid fa-briefcase"></i>
-            <!-- <i class="fa-solid fa-display-code"></i> -->
-            <!-- <i class="fa-solid fa-graduation-cap"></i> -->
-            <h4 class = "m-1">Role</h4>
-          </div>
-          
-        </div>
-        <!-- list with three items -->
-        <ul class="list-group list-group-flush m-3">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
-      
+       ${cards}
     </main>
-    <!-- added jQuery version 3.6.1 instead of 3.5.1 like bootstrap suggested. Change back if there are issues. -->
     <script
       src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
       integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
@@ -206,5 +248,5 @@ function generatePage(array) {
   </body>
 </html>
 `;
-  fs.writeFile("team-roster.html", file, () => console.log("Done!"));
+  fs.writeFile("./dist/team-roster.html", file, () => console.log("Done!"));
 }

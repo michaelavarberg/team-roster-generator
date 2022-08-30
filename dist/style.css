@@ -1,7 +1,19 @@
+* {
+  font-family: "Assistant", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
 header {
-  background-color: black;
+  background-color: #17a2b8;
   text-align: center;
   color: white;
-  padding: 5rem;
+  padding: 4rem;
   margin: 1rem;
+  border-radius: 0.25rem;
+}
+
+header h1 {
+  font-size: 3.5rem;
 }
