@@ -6,6 +6,8 @@ const Intern = require("./lib/intern");
 let employeesArray = [];
 
 init();
+
+//Asks user prompts in terminal and stores manager in the employees array
 function init() {
   inquirer
     .prompt([
@@ -56,7 +58,7 @@ function init() {
     });
 }
 
-// Asks user prompts in terminal and stores new engineer to the employees array
+// Asks user prompts in terminal and stores new engineer in the employees array
 function addEngineerPrompts() {
   inquirer
     .prompt([
@@ -100,7 +102,7 @@ function addEngineerPrompts() {
     });
 }
 
-// Asks user prompts in terminal and stores new intern in employees array
+// Asks user prompts in terminal and stores new intern in the employees array
 function addInternPrompts() {
   inquirer
     .prompt([
@@ -165,7 +167,7 @@ function generatePage(array) {
     </div>
     <ul class="list-group list-group-flush m-3">
       <li class="list-group-item">ID Number: ${employee.getId()}</li>
-      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}" target = "_blank">${employee.getEmail()}</a></li>
       <li class="list-group-item">Office Number: ${employee.getOfficeNumber()}</li>
     </ul>
   </div>`;
@@ -182,8 +184,8 @@ function generatePage(array) {
     </div>
     <ul class="list-group list-group-flush m-3">
       <li class="list-group-item">ID Number: ${employee.getId()}</li>
-      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
-      <li class="list-group-item">Github: ${employee.getGithub()}</li>
+      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}" target = "_blank">${employee.getEmail()}</a></li>
+      <li class="list-group-item">Github: <a href = "https://github.com/${employee.getGithub()}" target = "_blank">${employee.getGithub()}</a></li>
     </ul>
   </div>`;
     } else {
@@ -199,7 +201,7 @@ function generatePage(array) {
     </div>
     <ul class="list-group list-group-flush m-3">
       <li class="list-group-item">ID Number: ${employee.getId()}</li>
-      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}" target = "_blank">${employee.getEmail()}</a></li>
       <li class="list-group-item">School: ${employee.getSchool()}</li>
     </ul>
   </div>`;
