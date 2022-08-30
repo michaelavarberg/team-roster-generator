@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -55,6 +56,7 @@ function init() {
     });
 }
 
+// Asks user prompts in terminal and stores new engineer to the employees array
 function addEngineerPrompts() {
   inquirer
     .prompt([
@@ -98,6 +100,7 @@ function addEngineerPrompts() {
     });
 }
 
+// Asks user prompts in terminal and stores new intern in employees array
 function addInternPrompts() {
   inquirer
     .prompt([
@@ -141,11 +144,13 @@ function addInternPrompts() {
     });
 }
 
+//Takes input of entire employees array and creates the html page
 function generatePage(array) {
   console.log(array);
-}
+  const file =
+    //map through array and for each type of employee have if statements (for the extra question, icon and placement?)
 
-`<!DOCTYPE html>
+    `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -201,3 +206,5 @@ function generatePage(array) {
   </body>
 </html>
 `;
+  fs.writeFile("team-roster.html", file, () => console.log("Done!"));
+}
