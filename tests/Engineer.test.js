@@ -1,4 +1,5 @@
 const Engineer = require("../lib/Engineer");
+const prompt = require("inquirer");
 
 describe("Inherited initialization", () => {
   it("should create an object with 'name', 'id', and 'email' inherited from the parent class Employee", () => {

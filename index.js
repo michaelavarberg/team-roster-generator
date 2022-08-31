@@ -349,6 +349,7 @@ function generatePage(array) {
     <main class="d-flex justify-content-center">
        ${cards}
     </main>
+    <script src="https://kit.fontawesome.com/0f98f481f3.js" crossorigin="anonymous"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
       integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
