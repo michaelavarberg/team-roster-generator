@@ -297,7 +297,7 @@ function generatePage(array) {
     <ul class="list-group list-group-flush m-3">
       <li class="list-group-item">ID Number: ${employee.getId()}</li>
       <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}" target = "_blank">${employee.getEmail()}</a></li>
-      <li class="list-group-item">Github: <a href = "https://github.com/${employee.getGithub()}" target = "_blank">${employee.getGithub()}</a></li>
+      <li class="list-group-item">Github: <a href = "https://github.com/${employee.getGithub()}" target = "_blank">github.com/${employee.getGithub()}</a></li>
     </ul>
   </div>`;
     } else {
@@ -313,7 +313,7 @@ function generatePage(array) {
     </div>
     <ul class="list-group list-group-flush m-3">
       <li class="list-group-item">ID Number: ${employee.getId()}</li>
-      <li class="list-group-item">Email: <a href = "mailto:${employee.getEmail()}" target = "_blank">${employee.getEmail()}</a></li>
+      <li class="list-group-item">Email: <a href = "https//mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
       <li class="list-group-item">School: ${employee.getSchool()}</li>
     </ul>
   </div>`;
