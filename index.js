@@ -9,6 +9,10 @@ init();
 
 //Asks user prompts in terminal and stores manager in the employees array
 function init() {
+  console.log(`Welcome to Team Roster Generator!
+  Respond to the following prompts to add employees to your webpage.
+  
+  We'll start with your team's manager:`);
   inquirer
     .prompt([
       {
@@ -18,6 +22,8 @@ function init() {
         validate(answer) {
           if (!answer) {
             return "Please enter the manager's name.";
+          } else if (/\d/.test(answer) === true) {
+            return "Manager's name should not contain numbers.";
           } else {
             return true;
           }
@@ -27,16 +33,46 @@ function init() {
         type: "input",
         message: "What is the manager's id number?",
         name: "id",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the manager's id.";
+          } else if (/[a-zA-Z]/.test(answer) === true) {
+            return "Manager's id should not contain letters.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is the manager's email?",
         name: "email",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the manager's email.";
+          } else if (
+            answer.includes("@") === false ||
+            answer.includes(".") === false
+          ) {
+            return "Manager's email should include the '@' symbol and at least one '.'.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is the manager's office number?",
         name: "extra",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the manager's office number.";
+          } else if (/[a-zA-Z]/.test(answer) === true) {
+            return "Manager's office number should not contain letters.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "list",
@@ -66,21 +102,58 @@ function addEngineerPrompts() {
         type: "input",
         message: "What is this engineer's name?",
         name: "name",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the engineer's name.";
+          } else if (/\d/.test(answer) === true) {
+            return "Engineer's name should not contain numbers.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is this engineer's id number?",
         name: "id",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the engineer's id.";
+          } else if (/[a-zA-Z]/.test(answer) === true) {
+            return "Engineer's id should not contain letters.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is this engineer's email?",
         name: "email",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the engineer's email.";
+          } else if (
+            answer.includes("@") === false ||
+            answer.includes(".") === false
+          ) {
+            return "Engineer's email should include the '@' symbol and at least one '.'.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is this engineer's github username?",
         name: "extra",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the engineer's github username.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "list",
@@ -110,21 +183,60 @@ function addInternPrompts() {
         type: "input",
         message: "What is this intern's name?",
         name: "name",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the intern's name.";
+          } else if (/\d/.test(answer) === true) {
+            return "Intern's name should not contain numbers.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is this intern's id number?",
         name: "id",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the intern's id.";
+          } else if (/[a-zA-Z]/.test(answer) === true) {
+            return "Intern's id should not contain letters.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "What is this intern's email?",
         name: "email",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the intern's email.";
+          } else if (
+            answer.includes("@") === false ||
+            answer.includes(".") === false
+          ) {
+            return "Intern's email should include the '@' symbol and at least one '.'.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
         message: "Where does this intern attend school?",
         name: "extra",
+        validate(answer) {
+          if (!answer) {
+            return "Please enter the intern's school.";
+          } else if (/\d/.test(answer) === true) {
+            return "Intern's school name should not contain numbers.";
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "list",
