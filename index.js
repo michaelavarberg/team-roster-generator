@@ -346,7 +346,7 @@ function generatePage(array) {
     <header>
       <h1>My Team</h1>
     </header>
-    <main class="d-flex justify-content-center">
+    <main class="d-flex justify-content-center flex-wrap">
        ${cards}
     </main>
     <script src="https://kit.fontawesome.com/0f98f481f3.js" crossorigin="anonymous"></script>
